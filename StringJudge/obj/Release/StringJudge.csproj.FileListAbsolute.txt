@@ -1,0 +1,15 @@
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\bin\Release\StringJudge.exe.config
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\bin\Release\StringJudge.exe
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\bin\Release\StringJudge.pdb
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\bin\Release\Newtonsoft.Json.dll
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.csprojAssemblyReference.cache
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.Port.resources
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.Trajectory.resources
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.Main.resources
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.Properties.Resources.resources
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.csproj.GenerateResource.cache
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.csproj.CoreCompileInputs.cache
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.csproj.CopyComplete
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.exe
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\obj\Release\StringJudge.pdb
+C:\Users\yyx19\Desktop\StringJudge\StringJudge\bin\Release\Update\Update.json

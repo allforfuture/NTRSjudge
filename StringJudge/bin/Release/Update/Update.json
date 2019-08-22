@@ -1,0 +1,12 @@
+﻿{
+  "modeState": 1,
+  "server": {
+    "credential": "\\\\172.27.36.32;kk07user;nstd@2018",
+    "program": "\\\\172.27.36.32\\kk07\\13 SFC\\YYX\\3_Update\\StringJudgeRelease\\StringJudge.exe",
+    "folder": "\\\\172.27.36.32\\kk07\\13 SFC\\YYX\\3_Update\\StringJudgeRelease"
+  },
+  "local": {
+    "preserveFile": [ "StringJudge.exe.config" ],
+    "preserveFolder": [ "log" ]
+  }
+}
