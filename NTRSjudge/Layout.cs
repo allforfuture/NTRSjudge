@@ -15,9 +15,9 @@ namespace NTRSjudge
         public static int row = Convert.ToInt16(ConfigurationManager.AppSettings["row"]);
         public static int col = Convert.ToInt16(ConfigurationManager.AppSettings["col"]);
         public static int sum = row * col;
-        
+        static bool lineSwitch = ConfigurationManager.AppSettings["lineSwitch"]=="1"?true:false;
         public static Panel paint(AllInfo.SNinfo snInfo)
-        {            
+        {
             Color panelColor = new Color();
             switch (snInfo.result)
             {
@@ -113,6 +113,17 @@ namespace NTRSjudge
             }
 
 
+
+            if (lineSwitch && !snInfo.lineOK)
+            {
+                Label l4 = new Label();
+                l4.AutoSize = true;
+                l4.Location = new Point(50, 25);
+                //l4.Location = new Point(20, 25);
+                l4.Text = snInfo.line;
+                l4.Font=new Font("Arial", 24, FontStyle.Bold);
+                panel.Controls.Add(l4);
+            }
 
             panel.Controls.Add(l1);
             panel.Controls.Add(l2);

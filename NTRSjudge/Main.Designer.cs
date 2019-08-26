@@ -56,6 +56,7 @@
             this.GrpTest = new System.Windows.Forms.GroupBox();
             this.btnPath = new System.Windows.Forms.Button();
             this.ChkTest_ShowMessage = new System.Windows.Forms.CheckBox();
+            this.lblLine = new System.Windows.Forms.Label();
             this.PnlJudge.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.GrpTest.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(222, 578);
+            this.btnClear.Location = new System.Drawing.Point(222, 573);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(52, 51);
             this.btnClear.TabIndex = 21;
@@ -75,7 +76,7 @@
             // 
             this.PnlJudge.BackColor = System.Drawing.SystemColors.ControlDark;
             this.PnlJudge.Controls.Add(this.LblJudge);
-            this.PnlJudge.Location = new System.Drawing.Point(4, 126);
+            this.PnlJudge.Location = new System.Drawing.Point(4, 136);
             this.PnlJudge.Name = "PnlJudge";
             this.PnlJudge.Size = new System.Drawing.Size(270, 80);
             this.PnlJudge.TabIndex = 19;
@@ -94,7 +95,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(4, 203);
+            this.label3.Location = new System.Drawing.Point(4, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 25);
             this.label3.TabIndex = 23;
@@ -105,7 +106,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(-1, 98);
+            this.label2.Location = new System.Drawing.Point(-1, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 25);
             this.label2.TabIndex = 22;
@@ -146,7 +147,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(1, 489);
+            this.label5.Location = new System.Drawing.Point(1, 499);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 125);
             this.label5.TabIndex = 27;
@@ -156,10 +157,10 @@
             // 
             this.TxtTotal.Enabled = false;
             this.TxtTotal.Font = new System.Drawing.Font("微软雅黑", 14.25F);
-            this.TxtTotal.Location = new System.Drawing.Point(98, 489);
+            this.TxtTotal.Location = new System.Drawing.Point(98, 499);
             this.TxtTotal.Multiline = true;
             this.TxtTotal.Name = "TxtTotal";
-            this.TxtTotal.Size = new System.Drawing.Size(118, 140);
+            this.TxtTotal.Size = new System.Drawing.Size(118, 130);
             this.TxtTotal.TabIndex = 26;
             // 
             // label4
@@ -167,7 +168,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(93, 467);
+            this.label4.Location = new System.Drawing.Point(93, 477);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 25);
             this.label4.TabIndex = 25;
@@ -175,7 +176,7 @@
             // 
             // TxtDetail
             // 
-            this.TxtDetail.Location = new System.Drawing.Point(4, 228);
+            this.TxtDetail.Location = new System.Drawing.Point(4, 238);
             this.TxtDetail.Multiline = true;
             this.TxtDetail.Name = "TxtDetail";
             this.TxtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -280,7 +281,7 @@
             this.GrpTest.Controls.Add(this.BtnTest);
             this.GrpTest.Controls.Add(this.BtnTest_Send);
             this.GrpTest.Controls.Add(this.TxtTest_SendStr);
-            this.GrpTest.Location = new System.Drawing.Point(55, 364);
+            this.GrpTest.Location = new System.Drawing.Point(55, 374);
             this.GrpTest.Name = "GrpTest";
             this.GrpTest.Size = new System.Drawing.Size(200, 100);
             this.GrpTest.TabIndex = 32;
@@ -309,11 +310,23 @@
             this.ChkTest_ShowMessage.Text = "窗口收发提示";
             this.ChkTest_ShowMessage.UseVisualStyleBackColor = true;
             // 
+            // lblLine
+            // 
+            this.lblLine.AutoSize = true;
+            this.lblLine.Font = new System.Drawing.Font("微软雅黑", 20F);
+            this.lblLine.ForeColor = System.Drawing.Color.Black;
+            this.lblLine.Location = new System.Drawing.Point(145, 99);
+            this.lblLine.Name = "lblLine";
+            this.lblLine.Size = new System.Drawing.Size(75, 35);
+            this.lblLine.TabIndex = 33;
+            this.lblLine.Text = "Line:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 631);
+            this.Controls.Add(this.lblLine);
             this.Controls.Add(this.GrpTest);
             this.Controls.Add(this.TlpLayout);
             this.Controls.Add(this.btnClear);
@@ -372,6 +385,7 @@
         private System.Windows.Forms.GroupBox GrpTest;
         private System.Windows.Forms.CheckBox ChkTest_ShowMessage;
         private System.Windows.Forms.Button btnPath;
+        private System.Windows.Forms.Label lblLine;
     }
 }
 

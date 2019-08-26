@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Microsoft.Win32;
+using NTRSjudge.Check;
 
 namespace NTRSjudge
 {
@@ -47,6 +48,7 @@ namespace NTRSjudge
             InitializeComponent();
             //显示版本号
             this.Text += "_" + Application.ProductVersion.ToString();
+            lblLine.Text += Pqm.line;
             //新建文件夹（log、pqm、sum）
             Document.CreateDocument();
             //载入统计信息
@@ -116,7 +118,7 @@ namespace NTRSjudge
             */
             #endregion
             //定时执行
-            setTaskAtFixedTime();
+            SetTaskAtFixedTime();
         }
 
         private void 运动轨迹ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,7 +196,6 @@ namespace NTRSjudge
                 if (str == "") continue;
                 if (str != "ERROR"&& !SN.Contains("+") && str.Length != 17)
                 {
-                    //MessageBox.Show(str);
                     Log.WriteError(str);
                 }
                 //action(str);
@@ -541,7 +542,7 @@ namespace NTRSjudge
         }
         
 
-        void setTaskAtFixedTime()
+        void SetTaskAtFixedTime()
         {
             DateTime now = DateTime.Now;
             DateTime oneOClock = DateTime.Today.AddHours(8.0); //早上8：00
@@ -552,12 +553,12 @@ namespace NTRSjudge
             }
             int msUntilFour = (int)((oneOClock - now).TotalMilliseconds);
 
-            var t = new System.Threading.Timer(doAt8AM);
+            var t = new System.Threading.Timer(DoAt8AM);
             t.Change(msUntilFour, System.Threading.Timeout.Infinite);
         }
 
         //要执行的任务
-        void doAt8AM(object state)
+        void DoAt8AM(object state)
         {
             //执行功能：每天8点钟
             if (!Sum.ChangeFileName())
@@ -565,17 +566,12 @@ namespace NTRSjudge
                 Environment.Exit(0);
             }
             //System.InvalidOperationException:“线程间操作无效: 从不是创建控件“TxtTotal
-            //TxtTotal.Text = Sum.ReadTotal();
             Invoke(new Action(() =>
             {
                 TxtTotal.Text = Sum.ReadTotal();
             }));
-
-
-
-            MessageBox.Show("定时已经执行");
-            //再次设定
-            setTaskAtFixedTime();
+            //再次设定下一次定时
+            SetTaskAtFixedTime();
         }
     }
 }

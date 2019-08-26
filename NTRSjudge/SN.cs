@@ -18,13 +18,14 @@ namespace NTRSjudge
         public class SNinfo
         {
             internal string SN { get; set; }
+            internal bool lineOK { get; set; }
+            internal string line { get; set; }
             internal string result { get; set; }
             internal string detail { get; set; }
             internal DateTime checkTime { get; set; }
             internal string checkItem { get; set; }
             internal string checkTotal { get; set; }
-            internal DateTime firstTime { get; set; }
-            
+            internal DateTime firstTime { get; set; }            
         }
     }
 
@@ -73,6 +74,12 @@ namespace NTRSjudge
         {
             AllInfo.SNinfo info = new AllInfo.SNinfo();
             info.SN = SN=SN.ToUpper();
+            string line = "L??";
+            info.lineOK= Check.Check.checkLine(SN, ref line);
+            info.line = line;
+
+
+
             #region log记录的一盘里的第一个时间
             if (AllInfo.SNlist.Count == 0)
             { info.firstTime = DateTime.Now; }
