@@ -20,15 +20,21 @@ namespace StringJudge
         {            
             Color panelColor = new Color();
             Color strColor = new Color();
+            int fontInt = 30;
             switch (snInfo.result)
             {
                 case "OK":
+                    //显示"对象品"
+                    snInfo.result = "对象品";
                     panelColor = Color.Green;
                     strColor = Color.White;
                     break;
                 case "NG":
+                    //显示"非对象品"
+                    snInfo.result = "非对象品";
                     panelColor = Color.Crimson;
                     strColor = Color.White;
+                    fontInt = 11;
                     break;
                 default:
                     panelColor = Color.Red;
@@ -42,9 +48,10 @@ namespace StringJudge
 
             Label l1 = new Label();
             l1.Text = snInfo.result;
-            //l1.Font = new Font("微软雅黑",l1.Font.Size,FontStyle.Bold);
-            l1.Font = new Font("微软雅黑", 30, FontStyle.Bold);
+            l1.Font = new Font("微软雅黑", fontInt, FontStyle.Bold);
             l1.AutoSize = true;
+
+
             Label l2 = new Label();
             //绝对位置change动态位置
             l2.Location = new Point(0, 50);

@@ -96,6 +96,7 @@
             this.label3.Size = new System.Drawing.Size(70, 25);
             this.label3.TabIndex = 23;
             this.label3.Text = "Detail:";
+            this.label3.Visible = false;
             // 
             // label2
             // 
@@ -147,6 +148,7 @@
             this.TxtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtDetail.Size = new System.Drawing.Size(270, 339);
             this.TxtDetail.TabIndex = 24;
+            this.TxtDetail.Visible = false;
             // 
             // BtnTest
             // 
