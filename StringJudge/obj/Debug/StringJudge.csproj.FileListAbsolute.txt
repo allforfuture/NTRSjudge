@@ -21,3 +21,12 @@ C:\Users\yyx19\Desktop\Debug\Update\Update.json
 C:\Users\yyx19\Desktop\Debug\StringJudge.exe.config
 C:\Users\yyx19\Desktop\Debug\StringJudge.exe
 C:\Users\yyx19\Desktop\Debug\StringJudge.pdb
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.csprojAssemblyReference.cache
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.Port.resources
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.Trajectory.resources
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.Main.resources
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.Properties.Resources.resources
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.csproj.GenerateResource.cache
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.csproj.CopyComplete
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.exe
+C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Debug\StringJudge.pdb

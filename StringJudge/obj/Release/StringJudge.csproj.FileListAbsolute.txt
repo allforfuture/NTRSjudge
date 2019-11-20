@@ -23,7 +23,6 @@ C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.Trajectory.
 C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.Main.resources
 C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.Properties.Resources.resources
 C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.csproj.GenerateResource.cache
-C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.csproj.CoreCompileInputs.cache
 C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.csproj.CopyComplete
 C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.exe
 C:\Users\yyx19\Desktop\NTRSjudge\StringJudge\obj\Release\StringJudge.pdb

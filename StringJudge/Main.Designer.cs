@@ -127,6 +127,7 @@
             this.TxtSN.Name = "TxtSN";
             this.TxtSN.Size = new System.Drawing.Size(270, 21);
             this.TxtSN.TabIndex = 17;
+            this.TxtSN.Text = "GH9947433FUL6J3A4+123456";
             this.TxtSN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSN_KeyDown);
             // 
             // SNlab
