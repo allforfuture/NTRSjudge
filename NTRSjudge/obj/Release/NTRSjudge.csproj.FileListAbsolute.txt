@@ -406,7 +406,6 @@ C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.Trajectory.reso
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.Main.resources
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.Properties.Resources.resources
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.csproj.GenerateResource.cache
-C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.csproj.CoreCompileInputs.cache
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.csproj.CopyComplete
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.exe
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Release\NTRSjudge.pdb

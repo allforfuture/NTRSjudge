@@ -15,7 +15,7 @@ namespace NTRSjudge
         public static int row = Convert.ToInt16(ConfigurationManager.AppSettings["row"]);
         public static int col = Convert.ToInt16(ConfigurationManager.AppSettings["col"]);
         public static int sum = row * col;
-        static bool lineSwitch = ConfigurationManager.AppSettings["lineSwitch"]=="1"?true:false;
+        public static bool lineSwitch = ConfigurationManager.AppSettings["lineSwitch"]=="1"?true:false;
         public static Panel paint(AllInfo.SNinfo snInfo)
         {
             Color panelColor = new Color();

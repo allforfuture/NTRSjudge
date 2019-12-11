@@ -75,7 +75,8 @@ namespace NTRSjudge
             AllInfo.SNinfo info = new AllInfo.SNinfo();
             info.SN = SN=SN.ToUpper();
             string line = "L??";
-            info.lineOK= Check.Check.checkLine(SN, ref line);
+            if (Layout.lineSwitch&& SN!="ERROR")
+                info.lineOK = Check.Check.checkLine(SN, ref line);
             info.line = line;
 
 
