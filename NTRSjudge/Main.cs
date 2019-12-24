@@ -254,19 +254,6 @@ namespace NTRSjudge
             //(第2行第3列，第4行第5列材料NG，需要捡出)
             else if (mode == Mode.大研)//大研
             {
-                //string sendStr = "";
-                //int time = 0;
-                //for (int i = 0; i < AllInfo.SNlist.Count; i++)
-                //{
-                //    if (AllInfo.SNlist[i].result != "PASS")
-                //    {
-                //        string[] XY = Regedit.Trajectory[i].Split(',');
-                //        sendStr += "X" + time++.ToString() + "=" + XY[0] + ",";
-                //        sendStr += "Y" + time++.ToString() + "=" + XY[1] + ",";
-                //    }
-                //}
-                //if (sendStr == "") { sendStr = "0"; }
-                //SptSend.Write(sendStr);
                 if (AllInfo.SNlist.Count == NTRSjudge.Layout.sum)
                 {
                     //string sendStr =type + snInfo.firstTime.ToString("yyyyMMddHHmmss");
@@ -285,15 +272,6 @@ namespace NTRSjudge
                     MessageShow(ChkTest_ShowMessage.Checked, "mode="+mode+"，串口1发出" + (sendStr.Length + 1).ToString() + "字节Byte:\r\n" + sendStr + "\r\n(回车)");
                 }
             }
-
-
-            
-
-
-
-
-
-
             //每次接收分析后发一个信号给串口
             //接收（扫描器）：一个接一个的SN+","
             //GH945678901LKRQ01,

@@ -72,7 +72,8 @@ namespace NTRSjudge
             string path = Document.pathList[1] + fileName + ".csv";
             using (StreamWriter file = new StreamWriter(path, true))
             {
-                string[] csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect, "0.0", snInfo.checkItem, snInfo.checkTotal, "1", "JIG",
+                string[] csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "","", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect,
+                    "N/A","N/A","0.0", snInfo.checkItem, snInfo.checkTotal, "1", "JIG",
                     type + line.Remove(0, 1) + process.Substring(0,1) + snInfo.firstTime.ToString("yyMMddHHmmss").Remove(0, 1) };
 
                 string str = String.Join(",", csvStr);
