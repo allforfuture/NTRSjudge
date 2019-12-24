@@ -522,4 +522,3 @@ C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Debug\NTRSjudge.csproj.GenerateRe
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Debug\NTRSjudge.csproj.CopyComplete
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Debug\NTRSjudge.exe
 C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Debug\NTRSjudge.pdb
-C:\Users\yyx19\Desktop\NTRSjudge\NTRSjudge\obj\Debug\NTRSjudge.csprojAssemblyReference.cache

@@ -64,6 +64,7 @@ namespace NTRSjudge
         public static string line = ConfigurationManager.AppSettings["line"];
         public static string process = ConfigurationManager.AppSettings["process"];
         static string inspect = ConfigurationManager.AppSettings["inspect"];
+        static bool newFormat = ConfigurationManager.AppSettings["newFormat"] == "0" ? false : true;
 
         public static void WriteCSV(AllInfo.SNinfo snInfo)//(string SN,DateTime checkTime)
         {
@@ -72,9 +73,20 @@ namespace NTRSjudge
             string path = Document.pathList[1] + fileName + ".csv";
             using (StreamWriter file = new StreamWriter(path, true))
             {
-                string[] csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "","", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect,
-                    "N/A","N/A","0.0", snInfo.checkItem, snInfo.checkTotal, "1", "JIG",
-                    type + line.Remove(0, 1) + process.Substring(0,1) + snInfo.firstTime.ToString("yyMMddHHmmss").Remove(0, 1) };
+
+                string[] csvStr = null;
+                switch (newFormat)
+                {
+                    case false:
+                        csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect, "0.0", snInfo.checkItem, snInfo.checkTotal, "1", "JIG",
+                            type + line.Remove(0, 1) + process.Substring(0,1) + snInfo.firstTime.ToString("yyMMddHHmmss").Remove(0, 1) };
+                        break;
+                    case true:
+                        csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "","", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect,
+                            "N/A","N/A","0.0", snInfo.checkItem, snInfo.checkTotal, "1", "JIG",
+                            type + line.Remove(0, 1) + process.Substring(0,1) + snInfo.firstTime.ToString("yyMMddHHmmss").Remove(0, 1) };
+                        break;
+                }
 
                 string str = String.Join(",", csvStr);
 
