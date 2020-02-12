@@ -20,7 +20,6 @@ namespace NTRSjudge
             AppDomain.CurrentDomain.BaseDirectory + "sum\\"
         };
 
-        //@YYX不能被子类继承
         public static void CreateDocument()
         {
             foreach (string path in pathList)

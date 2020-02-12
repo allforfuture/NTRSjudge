@@ -47,7 +47,7 @@ namespace NTRSjudge
             main = this;
             InitializeComponent();
             //显示版本号
-            this.Text += "_" + Application.ProductVersion.ToString();
+            this.Text += " " + Application.ProductVersion.ToString();
             lblLine.Text += Pqm.line;
             lblLine.Visible = NTRSjudge.Layout.lineSwitch;
             //新建文件夹（log、pqm、sum）

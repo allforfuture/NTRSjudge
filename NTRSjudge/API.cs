@@ -15,13 +15,15 @@ namespace NTRSjudge
     class API
     {
         static string assy_cd = System.Configuration.ConfigurationManager.AppSettings["assy_cd"];
+        static string work_mode = System.Configuration.ConfigurationManager.AppSettings["work_mode"];
         static string url = System.Configuration.ConfigurationManager.AppSettings["API"];     
         public static string SN_Judge(string SN, ref string detail)
         {
             //POST参数param
             //assy_cd=COVER&serial_cd=GH98503102ZKPK627
             string POSTparam = "assy_cd=" + assy_cd + "&serial_cd=" + SN;
-
+            if (work_mode != "")
+                POSTparam += "&work_mode=" + work_mode;
             // param转换
             byte[] data = Encoding.ASCII.GetBytes(POSTparam);
 
