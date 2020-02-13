@@ -36,7 +36,6 @@ namespace NTRSjudge
     {
         static List<string> PPP = new List<string>(ConfigurationManager.AppSettings["checkPPP"].Split(','));
         static List<string> EEEE = new List<string>(ConfigurationManager.AppSettings["checkEEEE"].Split(','));
-
         protected static bool checkPPP(string SN)
         {
             SN = SN.Substring(0, 3);
@@ -52,6 +51,8 @@ namespace NTRSjudge
 
         protected static bool checkEEEE(string SN)
         {
+            if (EEEE[0] == "N/A")
+                return true;
             SN =SN.Substring(11, 4);
             foreach (string EEEEstr in EEEE)
             {

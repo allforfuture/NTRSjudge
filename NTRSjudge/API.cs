@@ -22,7 +22,7 @@ namespace NTRSjudge
             //POST参数param
             //assy_cd=COVER&serial_cd=GH98503102ZKPK627
             string POSTparam = "assy_cd=" + assy_cd + "&serial_cd=" + SN;
-            if (work_mode != "")
+            if (work_mode != "N/A")
                 POSTparam += "&work_mode=" + work_mode;
             // param转换
             byte[] data = Encoding.ASCII.GetBytes(POSTparam);
