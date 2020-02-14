@@ -62,6 +62,7 @@
             this.单片机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.无串口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GrpPort1.SuspendLayout();
             this.GrpPort2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -364,7 +365,8 @@
             // 
             this.生产模式ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.单串口ToolStripMenuItem,
-            this.双串口ToolStripMenuItem});
+            this.双串口ToolStripMenuItem,
+            this.无串口ToolStripMenuItem});
             this.生产模式ToolStripMenuItem.Name = "生产模式ToolStripMenuItem";
             this.生产模式ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.生产模式ToolStripMenuItem.Text = "生产模式";
@@ -437,6 +439,13 @@
             this.menuStrip1.TabIndex = 31;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // 无串口ToolStripMenuItem
+            // 
+            this.无串口ToolStripMenuItem.Name = "无串口ToolStripMenuItem";
+            this.无串口ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.无串口ToolStripMenuItem.Text = "无串口";
+            this.无串口ToolStripMenuItem.Click += new System.EventHandler(this.无串口ToolStripMenuItem_Click);
+            // 
             // Port
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -496,5 +505,6 @@
         private System.Windows.Forms.ToolStripMenuItem ONSToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 旧机器ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 无串口ToolStripMenuItem;
     }
 }

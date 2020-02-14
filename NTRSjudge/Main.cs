@@ -28,6 +28,7 @@ namespace NTRSjudge
 
         public enum Mode
         {
+            无串口 = 0,
             光子云 = 1,
             大研 = 2,
             旧机器=3,

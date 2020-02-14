@@ -46,7 +46,11 @@ namespace NTRSjudge
                     GrpPort1.Enabled = true;
                     GrpPort2.Enabled = true;
                     break;
-                    //GrpPort2.Enabled = true;
+                case Main.Mode.无串口:
+                    无串口ToolStripMenuItem.Checked = true;
+                    GrpPort1.Enabled = false;
+                    GrpPort2.Enabled = false;
+                    break;
             }
             #region load注册表
             if (Regedit.isRegeditKeyExit("Port"))
@@ -75,19 +79,30 @@ namespace NTRSjudge
             if (Regedit.isRegeditKeyExit("Identifier"))
             {
                 RegistryKey myreg = Registry.LocalMachine.OpenSubKey(@"software\NTRS");
-                identifier = TxtIdentifier.Text = (String)(myreg.GetValue("Identifier"));
+                identifier = (String)(myreg.GetValue("Identifier"));
+
+                switch (identifier)
+                {
+                    case "\r":
+                        TxtIdentifier.Text = "[CR]";
+                        break;
+                    case "\n":
+                        TxtIdentifier.Text = "[LF]";
+                        break;
+                    default:
+                        TxtIdentifier.Text = identifier;
+                        break;
+                }
             }
             #endregion
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            //bool del=Main.main.SptReceiveOrSend.IsOpen;
-            //del = Main.main.SptSend.IsOpen;
-            //return;
-            if (TxtIdentifier.Text=="") { MessageBox.Show("分隔符不能为空"); return; }
-            if (GrpPort1.Enabled == false && GrpPort2.Enabled == false)
-            { MessageBox.Show("请勾选生产模式");return; }
+            if (TxtIdentifier.Text == "") { MessageBox.Show("分隔符不能为空"); return; }
+            //if (GrpPort1.Enabled == false && GrpPort2.Enabled == false)
+            if (!无串口ToolStripMenuItem.Checked && !GrpPort1.Enabled && !GrpPort2.Enabled)
+            { MessageBox.Show("请勾选生产模式"); return; }
             #region 检查是否有空值和2个串口是否用同一端口名
             if (GrpPort1.Enabled)
             {
@@ -150,93 +165,99 @@ namespace NTRSjudge
                     stopBits = StopBits.Two;
                     break;
             }
-            //测试串口能否打开
-            try
+            //非"无串口"下，测试串口能否打开
+            if (!无串口ToolStripMenuItem.Checked)
             {
-                //打开串口
-                Main.main.SptReceiveOrSend.Close();
-                Main.main.SptSend.Close();
-                //Main.main.SptReceiveOrSend = new SerialPort
-                //    (CmbPortName1.Text, int.Parse(CmbBaudRate1.Text), parity, int.Parse(CmbDataBits1.Text), stopBits);
-                Main.main.SptReceiveOrSend.PortName = CmbPortName1.Text;
-                Main.main.SptReceiveOrSend.BaudRate = int.Parse(CmbBaudRate1.Text);
-                Main.main.SptReceiveOrSend.Parity = parity;
-                Main.main.SptReceiveOrSend.DataBits = int.Parse(CmbDataBits1.Text);
-                Main.main.SptReceiveOrSend.StopBits = stopBits;
-                Main.main.SptReceiveOrSend.Open();
-            }
-            catch (Exception ex)
-            {
-                Main.main.SptReceiveOrSend.Close();
-                //Main.main.SptSend.Close();
-                MessageBox.Show(ex.Message,"串口1通讯：",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (GrpPort2.Enabled)
-            {
-                switch (CmbParity2.Text)
-                {
-                    case "偶":
-                        parity = Parity.Even;
-                        break;
-                    case "奇":
-                        parity = Parity.Odd;
-                        break;
-                    case "无":
-                        parity = Parity.None;
-                        break;
-                    case "标记":
-                        parity = Parity.Mark;
-                        break;
-                    case "空格":
-                        parity = Parity.Space;
-                        break;
-                }
-                switch (CmbStopBits2.Text)
-                {
-                    case "1":
-                        stopBits = StopBits.One;
-                        break;
-                    case "1.5":
-                        stopBits = StopBits.OnePointFive;
-                        break;
-                    case "2":
-                        stopBits = StopBits.Two;
-                        break;
-                }
                 try
                 {
-                    //Main.main.SptSend.Close();
-                    Main.main.SptSend.PortName = CmbPortName2.Text;
-                    Main.main.SptSend.BaudRate = int.Parse(CmbBaudRate2.Text);
-                    Main.main.SptSend.Parity = parity;
-                    Main.main.SptSend.DataBits = int.Parse(CmbDataBits2.Text);
-                    Main.main.SptSend.StopBits = stopBits;
-                    Main.main.SptSend.Open();
+                    //打开串口
+                    Main.main.SptReceiveOrSend.Close();
+                    Main.main.SptSend.Close();
+                    //Main.main.SptReceiveOrSend = new SerialPort
+                    //    (CmbPortName1.Text, int.Parse(CmbBaudRate1.Text), parity, int.Parse(CmbDataBits1.Text), stopBits);
+                    Main.main.SptReceiveOrSend.PortName = CmbPortName1.Text;
+                    Main.main.SptReceiveOrSend.BaudRate = int.Parse(CmbBaudRate1.Text);
+                    Main.main.SptReceiveOrSend.Parity = parity;
+                    Main.main.SptReceiveOrSend.DataBits = int.Parse(CmbDataBits1.Text);
+                    Main.main.SptReceiveOrSend.StopBits = stopBits;
+                    Main.main.SptReceiveOrSend.Open();
                 }
                 catch (Exception ex)
                 {
-                    //Main.main.SptReceiveOrSend.Close();
-                    Main.main.SptSend.Close();
-                    MessageBox.Show(ex.Message, "串口2通讯：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Main.main.SptReceiveOrSend.Close();
+                    //Main.main.SptSend.Close();
+                    MessageBox.Show(ex.Message, "串口1通讯：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                if (GrpPort2.Enabled)
+                {
+                    switch (CmbParity2.Text)
+                    {
+                        case "偶":
+                            parity = Parity.Even;
+                            break;
+                        case "奇":
+                            parity = Parity.Odd;
+                            break;
+                        case "无":
+                            parity = Parity.None;
+                            break;
+                        case "标记":
+                            parity = Parity.Mark;
+                            break;
+                        case "空格":
+                            parity = Parity.Space;
+                            break;
+                    }
+                    switch (CmbStopBits2.Text)
+                    {
+                        case "1":
+                            stopBits = StopBits.One;
+                            break;
+                        case "1.5":
+                            stopBits = StopBits.OnePointFive;
+                            break;
+                        case "2":
+                            stopBits = StopBits.Two;
+                            break;
+                    }
+                    try
+                    {
+                        //Main.main.SptSend.Close();
+                        Main.main.SptSend.PortName = CmbPortName2.Text;
+                        Main.main.SptSend.BaudRate = int.Parse(CmbBaudRate2.Text);
+                        Main.main.SptSend.Parity = parity;
+                        Main.main.SptSend.DataBits = int.Parse(CmbDataBits2.Text);
+                        Main.main.SptSend.StopBits = stopBits;
+                        Main.main.SptSend.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        //Main.main.SptReceiveOrSend.Close();
+                        Main.main.SptSend.Close();
+                        MessageBox.Show(ex.Message, "串口2通讯：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
             }
-
             #region 能成功打开串口后，保存到注册表以及更改属性
             RegistryKey key = Registry.LocalMachine;
             RegistryKey software = key.OpenSubKey(@"software\NTRS", true);
             //串口
-            string[] port = { CmbPortName1.Text, CmbBaudRate1.Text, CmbParity1.Text, CmbDataBits1.Text, CmbStopBits1.Text };
-            if (GrpPort2.Enabled)
+            if (!无串口ToolStripMenuItem.Checked)
             {
-                string[] port2 = { CmbPortName2.Text, CmbBaudRate2.Text, CmbParity2.Text, CmbDataBits2.Text, CmbStopBits2.Text };
-                List<string> temp = port.ToList();
-                temp.AddRange(port2);
-                port = new string[] { };
-                port = temp.ToArray();
+                string[] port = { CmbPortName1.Text, CmbBaudRate1.Text, CmbParity1.Text, CmbDataBits1.Text, CmbStopBits1.Text };
+                if (GrpPort2.Enabled)
+                {
+                    string[] port2 = { CmbPortName2.Text, CmbBaudRate2.Text, CmbParity2.Text, CmbDataBits2.Text, CmbStopBits2.Text };
+                    List<string> temp = port.ToList();
+                    temp.AddRange(port2);
+                    port = new string[] { };
+                    port = temp.ToArray();
+                }
+                software.SetValue("Port", port, RegistryValueKind.MultiString);
             }
-            software.SetValue("Port", port, RegistryValueKind.MultiString);
+            else { software.SetValue("Port", new string[] { }, RegistryValueKind.MultiString); }
             //生产模式
             string mode="";
             if (光子云ToolStripMenuItem.Checked)
@@ -250,15 +271,27 @@ namespace NTRSjudge
             { Main.mode = Main.Mode.单片机; mode = "单片机"; }
             else if (ONSToolStripMenuItem.Checked)
             { Main.mode = Main.Mode.ONS; mode = "ONS"; }
-            
+
+            else if (无串口ToolStripMenuItem.Checked)
+            { Main.mode = Main.Mode.无串口; mode = "无串口"; }
+
             software.SetValue("Mode", mode, RegistryValueKind.String);
             //分隔符
-            //identifier = TxtIdentifier.Text;
-            //software.SetValue("Identifier", TxtIdentifier.Text, RegistryValueKind.String);
+            //if (TxtIdentifier.Text == "\r\n")
+            //{ identifier = "\r"; }
+            //else { identifier = TxtIdentifier.Text; }
 
-            if (TxtIdentifier.Text == "\r\n")
+
+            //分隔符
+            if (TxtIdentifier.Text == "[CR]")
             { identifier = "\r"; }
+            else if (TxtIdentifier.Text == "[LF]")
+            { identifier = "\n"; }
+            else if (TxtIdentifier.Text.Length != 1)
+            { identifier = TxtIdentifier.Text.Substring(TxtIdentifier.Text.Length - 1, 1); }
             else { identifier = TxtIdentifier.Text; }
+
+
             software.SetValue("Identifier", identifier, RegistryValueKind.String);
             #endregion
             MessageBox.Show("保存成功");
@@ -292,20 +325,36 @@ namespace NTRSjudge
 
         void SingleCheck(object sender)
         {
+            #region 全关闭，在打开所需的选项
             光子云ToolStripMenuItem.Checked = false;
             大研ToolStripMenuItem.Checked = false;
             旧机器ToolStripMenuItem.Checked = false;
-
             单片机ToolStripMenuItem.Checked = false;
             ONSToolStripMenuItem.Checked = false;
+            无串口ToolStripMenuItem.Checked = false;
+
             ((ToolStripMenuItem)sender).Checked = true;
-            GrpPort1.Enabled = true;
-            //if (sender.ToString() == "光子云" || sender.ToString() == "大研")
-            if(( (ToolStripMenuItem)sender).OwnerItem.Name== "单串口ToolStripMenuItem")
-            { GrpPort2.Enabled = false; }
-            else
-            { GrpPort2.Enabled = true; }
+            #endregion
+            
+            switch (((ToolStripMenuItem)sender).OwnerItem.Name)
+            {
+                case "单串口ToolStripMenuItem":
+                    GrpPort1.Enabled = true;
+                    GrpPort2.Enabled = false;
+                    break;
+                case "双串口ToolStripMenuItem":
+                    GrpPort1.Enabled = GrpPort2.Enabled = true;
+                    break;
+                default:
+                    GrpPort1.Enabled = GrpPort2.Enabled = false;
+                    break;
+            }
         }
         #endregion
+
+        private void 无串口ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SingleCheck(sender);
+        }
     }
 }

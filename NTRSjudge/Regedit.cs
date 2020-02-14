@@ -105,6 +105,8 @@ namespace NTRSjudge
                 RegistryKey myreg = Registry.LocalMachine.OpenSubKey(@"software\NTRS");
                 String[] portValues = (String[])(myreg.GetValue("Port"));
                 string modeValue = (string)(myreg.GetValue("Mode"));
+                if (modeValue == "无串口")
+                    return true;
                 //Main.mode唯一一处赋值代码
                 Main.mode = (Main.Mode)Enum.Parse(typeof(Main.Mode), modeValue);
                 //switch (modeValue)
