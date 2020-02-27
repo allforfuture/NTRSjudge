@@ -34,14 +34,13 @@ namespace NTRSjudge
     /// </summary>
     class Config
     {
-        static List<string> PPP = new List<string>(ConfigurationManager.AppSettings["checkPPP"].Split(','));
+        static List<string> PPP = new List<string>(ConfigurationManager.AppSettings["checkPPP"].Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
         static List<string> EEEE = new List<string>(ConfigurationManager.AppSettings["checkEEEE"].Split(','));
         protected static bool checkPPP(string SN)
         {
-            SN = SN.Substring(0, 3);
             foreach (string PPPstr in PPP)
             {
-                if (SN == PPPstr)
+                if (SN.Substring(0, PPPstr.Length) == PPPstr)
                 {
                     return true;
                 }
@@ -114,18 +113,15 @@ namespace NTRSjudge
                 info.result = "MISS";
                 info.detail = "SN format false";
             }
-            else if (!Config.checkPPP(SN) || !Config.checkEEEE(SN))
+            else if (!Config.checkPPP(SN))
             {
-                if (!Config.checkPPP(SN))
-                {
-                    info.result = "MISS";
-                    info.detail = "Miss PPP";
-                }
-                if (!Config.checkEEEE(SN))
-                {
-                    info.result = "MISS";
-                    info.detail += "\r\nMiss EEEE";
-                }
+                info.result = "MISS";
+                info.detail = "Miss PPP";
+            }
+            else if (!Config.checkEEEE(SN))
+            {
+                info.result = "MISS";
+                info.detail = "Miss EEEE";
             }
             else
             {
