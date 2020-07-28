@@ -72,7 +72,7 @@ namespace OK2Ship
             string path = Document.pathList[1] + fileName + ".csv";
             using (StreamWriter file = new StreamWriter(path, true))
             {
-                string[] csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect, "0.0", snInfo.checkItem, snInfo.checkTotal, "1"
+                string[] csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "", "", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect, "N/A" , "N/A" , "0.0", snInfo.checkItem, snInfo.checkTotal, "1"
                     , "MACHINE",
                     machineName };
 

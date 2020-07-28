@@ -75,7 +75,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A0B5E9B1AD5BB64ED20363982015FE68AB7CCFDC</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D79315BB7D9D6996D7EB5CFC029792BB3E7C54EC</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>OK2Ship_TemporaryKey.pfx</ManifestKeyFile>
