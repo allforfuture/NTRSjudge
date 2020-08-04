@@ -19,7 +19,6 @@ namespace OK2Ship
             AppDomain.CurrentDomain.BaseDirectory + "sum\\"
         };
 
-        //@YYX不能被子类继承
         public static void CreateDocument()
         {
             foreach (string path in pathList)
@@ -64,6 +63,7 @@ namespace OK2Ship
         public static string process = ConfigurationManager.AppSettings["process"];
         static string inspect = ConfigurationManager.AppSettings["inspect"];
         static string machineName = ConfigurationManager.AppSettings["ok2ship_MachineName"];
+        static bool isNewFormat = ConfigurationManager.AppSettings["isNewFormat"] == "0" ? false : true;
 
         public static void WriteCSV(AllInfo.SNinfo snInfo)//(string SN,DateTime checkTime)
         {
@@ -75,8 +75,8 @@ namespace OK2Ship
                 string[] csvStr = new string[] { type, factory, building, line, process, snInfo.SN, "", "", "", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect, "N/A" , "N/A" , "0.0", snInfo.checkItem, snInfo.checkTotal, "1"
                     , "MACHINE",
                     machineName };
-
-                string str = String.Join(",", csvStr);
+                string[] csvStr_Old = new string[] { type, factory, building, line, process, snInfo.SN, "", "", snInfo.checkTime.ToString("yy,MM,dd,HH,mm,ss"), "1", inspect, "0.0", snInfo.checkItem, snInfo.checkTotal, "1", "MACHINE", machineName };
+                string str = isNewFormat? String.Join(",", csvStr) : String.Join(",", csvStr_Old);
 
                 file.WriteLine(str);// 直接追加文件末尾，换行 
             }
