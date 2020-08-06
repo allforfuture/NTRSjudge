@@ -553,5 +553,13 @@ namespace NTRSjudge
             //再次设定下一次定时
             SetTaskAtFixedTime();
         }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                BtnClear_Click(sender, new EventArgs());
+            }
+        }
     }
 }
